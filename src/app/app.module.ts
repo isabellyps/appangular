@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,23 +12,18 @@ import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './navegacao/menu/menu.component';
-import { HomeComponent } from './navegacao/home/home.component';
-import { FooterComponent } from './navegacao/footer/footer.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
-import { rootRouterConfig } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
+import { NavegacaoModule } from './navegacao/navegacao.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    HomeComponent,
-    FooterComponent,
     SobreComponent,
     ContatoComponent,
     DataBindingComponent,
@@ -38,14 +32,15 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
   ],
   imports: [
     BrowserModule,
-    [RouterModule.forRoot(rootRouterConfig, { useHash: false })],
     FormsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgBrazil,
     TextMaskModule,
-    CustomFormsModule
+    CustomFormsModule,
+    NavegacaoModule,
+    AppRoutingModule
   ],
   providers: [
     ProdutoService,
