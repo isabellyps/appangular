@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { Nav } from './nav.model';
 
 @Component({
@@ -41,7 +42,7 @@ export class MenuComponent {
     {
       link: '/produtos',
       name:'Produtos',
-      exact: true,
+      exact: false,
       admin: false
     },
   ];
