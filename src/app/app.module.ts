@@ -43,8 +43,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     AppRoutingModule
   ],
   providers: [
-    ProdutoService,
-    { provide: APP_BASE_HREF, useValue: '/' }
+    ProdutoService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
