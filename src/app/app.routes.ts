@@ -8,6 +8,7 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { HomeComponent } from './navegacao/home/home.component';
 import { NotFoundComponent } from './navegacao/not-found/not-found.component';
 import { AuthGuard } from './services/app.guard';
+import { CadastroGuard } from './services/cadastro.guard';
 
 const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,7 @@ const rootRouterConfig: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'feature-data-binding', component: DataBindingComponent },
     // { path: 'produtos', component: ListaProdutoComponent },
-    { path: 'cadastro', component: CadastroComponent},
+    { path: 'cadastro', component: CadastroComponent, canDeactivate: [CadastroGuard]},
     { path: 'produtos', 
             loadChildren: () => import('./demos/arquitetura-componentes/produto.module')
                 .then(m => m.ProdutoModule)},

@@ -19,8 +19,8 @@ import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
-import { AdminModule } from './admin/admin.module';
 import { AuthGuard } from './services/app.guard';
+import { CadastroGuard } from './services/cadastro.guard';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { AuthGuard } from './services/app.guard';
   ],
   providers: [
     ProdutoService,
-    AuthGuard
+    AuthGuard,
+    CadastroGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
