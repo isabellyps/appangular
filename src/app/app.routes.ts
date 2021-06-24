@@ -6,6 +6,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { HomeComponent } from './navegacao/home/home.component';
+import { NotFoundComponent } from './navegacao/not-found/not-found.component';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 
 const rootRouterConfig: Routes = [
@@ -15,11 +16,13 @@ const rootRouterConfig: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'feature-data-binding', component: DataBindingComponent },
     // { path: 'produtos', component: ListaProdutoComponent },
-    { path: 'produto-detalhe/:id', component: ListaProdutoComponent },
     { path: 'cadastro', component: CadastroComponent},
     { path: 'produtos', 
             loadChildren: () => import('./demos/arquitetura-componentes/produto.module')
                 .then(m => m.ProdutoModule)},
+    { path: 'produto-detalhe/:id', component: ListaProdutoComponent },
+
+    { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
