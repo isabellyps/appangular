@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { fromEvent, Observable } from 'rxjs';
 
 import { ProdutoDetalheComponent } from '../componentes/produto-card-detalhe.component';
@@ -23,10 +24,10 @@ export class ProdutoDashboardComponent implements OnInit, AfterViewInit {
   //coleção
   @ViewChildren(ProdutoDetalheComponent) botoes: QueryList<ProdutoDetalheComponent>;
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private route: ActivatedRoute) { }
   
   ngOnInit(): void {
-    this.produtos = this.produtoService.obterTodos();
+    this.produtos = this.route.snapshot.data['produtos'];
   }
 
   ngAfterViewInit(): void {
