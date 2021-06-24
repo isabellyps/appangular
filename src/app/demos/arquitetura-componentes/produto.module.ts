@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -23,7 +24,8 @@ import { ProdutoService } from './services/produto.service';
     ],
     imports: [
         CommonModule,
-        ProdutoRoutingModule
+        ProdutoRoutingModule,
+        RouterModule
     ],
     exports: [],
     providers: [
