@@ -8,19 +8,22 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/cadastro']" routerLinkActive="router-link-active">Cadastro</a>
+            <a class="nav-link" [routerLink]="['']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre</a>
+            <a class="nav-link" [routerLink]="['/cadastro']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active">Cadastro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/contato']" routerLinkActive="router-link-active">Contato</a>
+            <a class="nav-link" [routerLink]="['/sobre']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active">Sobre</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/feature-data-binding']" routerLinkActive="router-link-active">Features</a>
+            <a class="nav-link" [routerLink]="['/contato']" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/produtos']" routerLinkActive="router-link-active">Produtos</a>
+              <a class="nav-link" [routerLink]="['/feature-data-binding']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/produtos']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active">Produtos</a>
           </li>
         </ul>
       </div>
