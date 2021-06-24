@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgBrazil } from 'ng-brazil';
@@ -20,6 +19,8 @@ import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
+import { AdminModule } from './admin/admin.module';
+import { AuthGuard } from './services/app.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     ContatoComponent,
     DataBindingComponent,
     ListaProdutoComponent,
-    CadastroComponent
+    CadastroComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     AppRoutingModule
   ],
   providers: [
-    ProdutoService
+    ProdutoService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
