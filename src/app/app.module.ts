@@ -53,7 +53,10 @@ export const BAR_PROVIDERS: Provider[] = [
     CustomFormsModule,
     NavegacaoModule,
     AppRoutingModule,
-    BarModule
+    BarModule.forRoot({
+      unidadeId: 1000,
+      unidadeToken: '2eccc5e2e2e665e2d'
+    })
   ],
   providers: [
     ProdutoService,
