@@ -21,6 +21,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
+import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CadastroGuard } from './services/cadastro.guard';
     DataBindingComponent,
     ListaProdutoComponent,
     CadastroComponent,
-    
+    FilmesComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
+import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
@@ -26,6 +27,7 @@ const rootRouterConfig: Routes = [
                 .then(m => m.AdminModule),
             canLoad: [AuthGuard],
             canActivate: [AuthGuard]},
+    { path: 'filmes', component: FilmesComponent },
 
     { path: '**', component: NotFoundComponent },
 ];
