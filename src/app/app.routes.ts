@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BarComponent } from './demos/bar-di-zones/bar.component';
 
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
@@ -28,6 +29,7 @@ const rootRouterConfig: Routes = [
             canLoad: [AuthGuard],
             canActivate: [AuthGuard]},
     { path: 'filmes', component: FilmesComponent },
+    { path: 'bar', component: BarComponent },
 
     { path: '**', component: NotFoundComponent },
 ];
