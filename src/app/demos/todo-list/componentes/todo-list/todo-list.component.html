@@ -5,29 +5,39 @@
   <table class="table table-striped">
     <tbody>
       <tr *ngFor="let item of list; index as i">
-        <td>
+        <td class="text-left">
           <span>{{ item.nome }}</span>
-          
-          <span
+        </td>
+        <td class="text-right">
+          <img
             *ngIf="!item.finalizada && item.iniciada"
-            class="task-list__finalizado"
+            class="task-list-icon"
             (click)="toggleItem(i, 'finalizar')"
-          ></span>
-          <span
+            src="/assets/parar_ativo.png"
+          />
+          <img
             *ngIf="!item.finalizada && !item.iniciada"
-            class="task-list__iniciado"
+            class="task-list-icon"
             (click)="toggleItem(i, 'iniciar')"
-          ></span>
-          <span
+            src="/assets/iniciar_ativo.png"
+          />
+          <img
             *ngIf="item.finalizada && !item.iniciada"
-            class="task-list__retroceder"
+            class="task-list-icon"
             (click)="toggleItem(i, 'retomar')"
-          ></span>
-          <span
+            src="/assets/retroceder_ativo.png"
+          />
+          <img
             *ngIf="!item.finalizada && item.iniciada"
-            class="task-list__retroceder"
+            class="task-list-icon"
             (click)="toggleItem(i, 'cancelar')"
-          ></span>
+            src="/assets/retroceder_ativo.png"
+          />
+          <img
+            class="task-list-icon"
+            src="/assets/lixo.png"
+            (click)="excluir(item.id)"
+          />
         </td>
       </tr>
     </tbody>

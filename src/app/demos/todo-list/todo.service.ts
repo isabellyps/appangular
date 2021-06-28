@@ -8,35 +8,52 @@ import { Store } from './todo.store';
 
 @Injectable()
 export class TasksService {
-    
-    constructor(
-        private http: HttpClient,
-        private store: Store
-    ) {}
+  constructor(private http: HttpClient, private store: Store) {}
 
-    getTodoList$: Observable<Task[]> = this.http
-        .get<Task[]>('http://localhost:3000/todolist')
-        .pipe(tap(next => this.store.set('todolist', next)));
+  getTodoList$: Observable<Task[]> = this.http
+    .get<Task[]>('http://localhost:3000/todolist')
+    .pipe(tap((next) => this.store.set('todolist', next)));
 
-    // getToDoList(): Observable<Task[]> {
-    //     return this.http.get<Task[]>('http://localhost:3000/todolist');
-    // }
+  // getToDoList(): Observable<Task[]> {
+  //     return this.http.get<Task[]>('http://localhost:3000/todolist');
+  // }
 
-    toggle(event: any) {
-        this.http
-            .put(`http://localhost:3000/todolist/${event.task.id}`, event.task)
-            .subscribe(() => {
-                const value = this.store.value.todolist;
+  toggle(event: any) {
+    this.http
+      .put(`http://localhost:3000/todolist/${event.task.id}`, event.task)
+      .subscribe(() => {
+        const value = this.store.value.todolist;
 
-                const todolist = value.map((task: Task) => {
-                    if(event.task.id === task.id) {
-                        return { ...task, ...event }
-                    } else {
-                        return task;
-                    }
-                });
-                
-                this.store.set('todolist', todolist);
-            });
-    }
+        const todolist = value.map((task: Task) => {
+          if (event.task.id === task.id) {
+            return { ...task, ...event };
+          } else {
+            return task;
+          }
+        });
+
+        this.store.set('todolist', todolist);
+      });
+  }
+
+  remover(id: number) {
+    this.http.delete(`http://localhost:3000/todolist/${id}`).subscribe(() => {
+      const value = this.store.value.todolist.filter((item) => item.id !== id);
+
+      this.store.set('todolist', value);
+    });
+  }
+
+  adicionar(task: Task) {
+    this.http.post(`http://localhost:3000/todolist/`, task).subscribe(() => {
+      const value = this.store.value.todolist;
+
+      task.id = value.slice(-1).pop().id + 1;
+      task.finalizada = false;
+      task.iniciada = false;
+
+      value.push(task);
+      this.store.set('todolist', value);
+    });
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Task } from '../../task.model';
+import { TasksService } from '../../todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,11 +9,14 @@ import { Task } from '../../task.model';
   styleUrls: ['todo-list.component.scss'],
 })
 export class TodoListComponent {
+  
   @Input()
   list: Task[];
 
   @Output()
   toggle = new EventEmitter<any>();
+
+  constructor(private tasksService: TasksService) { }
 
   toggleItem(index: number, acao: string) {
     const task = this.list[index];
@@ -39,5 +43,9 @@ export class TodoListComponent {
     this.toggle.emit({
       task: { ...task }
     });
+  }
+
+  excluir(id: number) {
+    this.tasksService.remover(id);
   }
 }
