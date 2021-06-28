@@ -8,6 +8,7 @@ import { TodoListComponent } from './componentes/todo-list/todo-list.component';
 import { TasksFinalizadasComponent } from './componentes/tasks-finalizadas/tasks-finalizadas.component';
 import { TasksIniciadasComponent } from './componentes/tasks-iniciadas/tasks-iniciadas.component';
 import { TasksComponent } from './componentes/tasks/tasks.component';
+import { Store } from './todo.store';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { TasksComponent } from './componentes/tasks/tasks.component';
         HttpClientModule
     ],
     providers: [
-        TasksService
+        TasksService,
+        Store
     ],
     declarations: [
         TodoComponent,
